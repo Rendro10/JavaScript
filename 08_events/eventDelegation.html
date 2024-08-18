@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation</title>
+</head>
+<body>
+    <h1>Here we will learn about Event Delegation</h1>
+
+    <div>
+        <ul id="categories">
+            <li id="laptops">laptops</li>
+            <li id="cameras">Cameras</li>
+            <li id="shoes">shoes</li>
+        </ul>
+    </div>
+</body>
+<script>
+    document.querySelector('#categories').addEventListener('click',(e)=>{
+        // console.log("category Parent Clicked!")
+        console.log(e.target.id);
+        window.location.href='/'+ e.target.id
+    })
+</script>
+</html>

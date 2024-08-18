@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        div{
+            min-width: 100px;
+            min-height: 100px;
+            padding: 30px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is all about Image Bubbling and Capturing!</h1>
+    <div id="grand-parent">
+        <h3>Grand Parent</h3>
+        <div id="parent">
+            <h3>Parent</h3>
+            <div id="child">
+                <h3>Child</h3>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.querySelector("#grand-parent").addEventListener('click',()=>{
+        console.log("Grand Parent Clicked")
+    },false)
+    document.querySelector("#parent").addEventListener('click',(e)=>{
+        console.log("Parent Clicked")
+        e.stopPropagation();
+    },false)
+    document.querySelector("#child").addEventListener('click',(e)=>{
+        console.log("Child Clicked")
+        e.stopPropagation()
+    },false)
+
+    // so if we set the parameter false here and click the child div then first it will click child div then parent div then grand parent div this is called EVENT BUBBLING but if i set it as a true then click the child div then first grand parent executes then parent then child it is called EVENT CAPURING or EVENT TRICKLING
+</script>
+</html>

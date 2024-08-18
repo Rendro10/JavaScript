@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code | DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langname){
+        const li = document.createElement('li')
+        li.innerHTML = `${langname}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage('Java')
+    addLanguage('TS')
+
+    function addOptimizeLanguage(langname){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langname))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptimizeLanguage("C and C++")
+
+    // Edit 2nd lang
+    function secondChange(langname){
+        const secondLang = document.querySelector("li:nth-child(2)")
+        // secondLang.innerHTML = "Ruby"
+        const newLi = document.createElement('li');
+        newLi.textContent = langname
+        secondLang.replaceWith(newLi)
+    }
+    secondChange("Ruby")
+
+    //Edit first Lang
+    function firstChange (langname) {
+        const firstLang = document.querySelector("li:first-child");
+        firstLang.outerHTML = '<li>Robust</li>'
+        // const newLi = document.createElement('li');
+        // newLi.textContent = langname;
+        // firstLang.replaceWith(newLi);
+    }
+    firstChange("Go Lang")
+
+    // remove element
+    function removeLastLi(){
+        const lastLang = document.querySelector('li:last-child');
+        lastLang.remove();
+    }
+    removeLastLi()
+
+    
+
+
+</script>
+</html>
